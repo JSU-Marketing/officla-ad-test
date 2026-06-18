@@ -758,20 +758,7 @@ src="https://www.facebook.com/tr?id=883049444839476&ev=PageView&noscript=1"
       }
 
       leadForm.addEventListener("submit", (event) => {
-        event.preventDefault();
-
-        const formData = new FormData(leadForm);
-        console.log("Lead form submitted", Object.fromEntries(formData));
-
-        // Meta Pixel lead conversion placeholder:
-        // if (typeof fbq === "function") fbq("track", "Lead");
-
-        const thankYouUrl = window.location.protocol === "file:"
-          ? `${window.location.pathname}?thank-you=1`
-          : "/thank-you";
-
-        window.history.pushState({ thankYou: true }, "", thankYouUrl);
-        showThankYouState();
+         fbq("track", "Lead");
       });
 
       window.addEventListener("popstate", () => {
